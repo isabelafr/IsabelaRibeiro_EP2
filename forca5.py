@@ -1,4 +1,24 @@
 # -*- coding: utf-8 -*-
+from random import choice
+
+f = open("entrada (1).txt", encoding="utf-8")
+lista = f.readlines()
+
+def listafuncao(q):
+    list[q].strip()
+    
+listalimpa = []
+
+for n in lista:
+    s = n.strip()
+    listalimpa.append(s)
+    
+pcchoice = choice(listalimpa)
+c = len(pcchoice)
+print(pcchoice)
+
+
+
 
 import turtle                 #inicio tartaruga 1
 window = turtle.Screen()      #criar um janela para a tartaruga 
@@ -112,6 +132,19 @@ def perna2():
     tartaruga.forward(40)
     
 perna2()
+
+def morte():
+    import turtle 
+    tartaruga = turtle.Turtle()
+    tartaruga.speed(5)
+    tartaruga.penup()
+    tartaruga.setpos(-250,110)
+    tartaruga.pendown()
+    tartaruga.color("red")
+    tartaruga.left(0)
+    tartaruga.forward(100)
+    
+morte()
     
     
     
@@ -119,5 +152,5 @@ perna2()
 window.exitonclick()
 
 
-f= open("entrada.txt", encoding="utf-8")
+
 
