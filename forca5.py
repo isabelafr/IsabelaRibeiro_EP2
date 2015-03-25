@@ -17,7 +17,21 @@ pcchoice = choice(listalimpa)
 c = len(pcchoice)
 print(pcchoice)
 
-
+import turtle
+tartaruga = turtle.Turtle()
+tartaruga.pu()
+tartaruga.setpos(-150,0)
+tartaruga.pd()
+for i in range (c):
+    tartaruga.speed(5)
+    tartaruga.color("black")
+    tartaruga.penup()
+    tartaruga.pendown()
+    tartaruga.forward(20)
+    tartaruga.penup()
+    tartaruga.forward(5)
+    
+        
 
 
 import turtle                 #inicio tartaruga 1
@@ -42,6 +56,9 @@ for i in range (1):
     
 angulo2 = 270
 dist2 = 100
+
+
+
 
 for i in range (1):
     tartaruga.left(angulo2)
