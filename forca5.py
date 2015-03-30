@@ -1,3 +1,4 @@
+#Isabela Frederico Ribeiro
 # -*- coding: utf-8 -*-
 from random import choice
 
@@ -17,8 +18,9 @@ pcchoice = choice(listalimpa)
 c = len(pcchoice)
 print(pcchoice)
 
-import turtle
+import turtle                #inicio dos tracinhos
 tartaruga = turtle.Turtle()
+tartaruga.hideturtle()
 tartaruga.pu()
 tartaruga.setpos(-150,0)
 tartaruga.pd()
@@ -29,7 +31,7 @@ for i in range (c):
     tartaruga.pendown()
     tartaruga.forward(20)
     tartaruga.penup()
-    tartaruga.forward(5)
+    tartaruga.forward(5)     #fim dos tracinhos 
     
         
 
@@ -41,6 +43,7 @@ window.title("Jogo da Forca")
 
 
 tartaruga = turtle.Turtle()
+tartaruga.hideturtle()
 tartaruga.speed(5)
 tartaruga.penup()
 tartaruga.setpos(-300,0)     #posição inicial da tartaruga
@@ -71,11 +74,37 @@ for i in range (1):
     tartaruga.left(angulo3)
     tartaruga.forward(dist3)   #fim tartaruga 1
 
+
+erros = 0
+erros=+1
+acertos = 0
+onde = []
+while erros < 6:
+    
+    l = str(window.textinput("Chute", "Chute uma letra:"))
+    
+    for i in range(len(pcchoice)):
+             if l  == pcchoice[i]:
+                 onde.append(i)
+                 import turtle
+                 tartaruga = turtle.Turtle()
+                 tartaruga.hideturtle()
+                 tartaruga.setpos(-150 + 25*i,0)
+                 tartaruga.write(l, font = ("Arial",24,"normal"))
+
+    
+
+
+    
+    
+
+
                                #inicio do corpo
 
 def cabeca ():                  
-    import turtle              #inicio tartaruga 2
+    import turtle              #tartaruga 2
     tartaruga = turtle.Turtle()
+    tartaruga.hideturtle()
     tartaruga.speed(5)
     tartaruga.penup()
     tartaruga.setpos(-200,110)
@@ -86,8 +115,9 @@ def cabeca ():
 cabeca()
     
 def corpo ():
-    import turtle
+    import turtle             #tartaruga 3 
     tartaruga = turtle.Turtle()
+    tartaruga.hideturtle()
     tartaruga.speed(5)
     tartaruga.penup()
     tartaruga.setpos(-200,110)
@@ -99,8 +129,9 @@ def corpo ():
 corpo()
 
 def braco1 ():
-    import turtle 
+    import turtle            #tartaruga 4 
     tartaruga = turtle.Turtle()
+    tartaruga.hideturtle()
     tartaruga.speed(5)
     tartaruga.penup()
     tartaruga.setpos(-200,90)
@@ -112,8 +143,9 @@ def braco1 ():
 braco1()
 
 def braco2():
-    import turtle
+    import turtle           #tartaruga 5 
     tartaruga = turtle.Turtle()
+    tartaruga.hideturtle()
     tartaruga.speed(5)
     tartaruga.penup()
     tartaruga.setpos(-200,90)
@@ -125,8 +157,9 @@ def braco2():
 braco2()
 
 def perna1():
-    import turtle
+    import turtle          #tartaruga 6 
     tartaruga = turtle.Turtle()
+    tartaruga.hideturtle()
     tartaruga.speed(5)
     tartaruga.penup()
     tartaruga.setpos(-200,40)
@@ -138,8 +171,9 @@ def perna1():
 perna1()
 
 def perna2():
-    import turtle
+    import turtle          #tartaruga 7 
     tartaruga = turtle.Turtle()
+    tartaruga.hideturtle()
     tartaruga.speed(5)
     tartaruga.penup()
     tartaruga.setpos(-200,40)
@@ -151,8 +185,9 @@ def perna2():
 perna2()
 
 def morte():
-    import turtle 
+    import turtle          #tartaruga 8 
     tartaruga = turtle.Turtle()
+    tartaruga.hideturtle()
     tartaruga.speed(5)
     tartaruga.penup()
     tartaruga.setpos(-250,110)
@@ -161,13 +196,29 @@ def morte():
     tartaruga.left(0)
     tartaruga.forward(100)
     
-morte()
+morte()                         #fim do corpo 
     
+def desenharboneco():    
+    if erros == 1:
+        cabeca(erros-1)
+    if erros == 2:
+        corpo(erros-1)
+    if erros == 3:
+        braco1(erros-1)
+    if erros == 4:
+        braco2(erros-1)
+    if erros == 5:
+        perna1 (erros-1)
+    if erros == 6:
+        perna2(erros-1)
+        morte()
+        window.textinput("Você perdeu!")
+
+desenharboneco()
     
     
     
 window.exitonclick()
-
 
 
 
