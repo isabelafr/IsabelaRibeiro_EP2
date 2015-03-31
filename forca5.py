@@ -7,6 +7,7 @@ from random import choice
 f = open("entrada (1).txt", encoding="utf-8")
 lista = f.readlines()
 
+
 def listafuncao(q):
     list[q].strip()
     
@@ -15,6 +16,7 @@ listalimpa = []
 for n in lista:
     s = n.strip()
     listalimpa.append(s)
+    
     
 pcchoice = choice(listalimpa)
 c = len(pcchoice)
@@ -208,7 +210,7 @@ def letrasacertadas(certas):
     tartaruga.penup()
     size_certas = len(certas)
     for i in range (size_certas):
-        if pcchoice[i]!=" ":
+        if pcchoice[i] != " ":
             tartaruga.setpos(-30,200)
             tartaruga.pd()
             tartaruga.forward(20)
@@ -216,18 +218,95 @@ def letrasacertadas(certas):
         tartaruga.setpos(-30,200)
         tartaruga.write(certas[i], align = "left" ,font = ("Arial", 14, "bold"))
         
-            
-    
-       
         
-
-
-
-
-
-       
 window = desenhaforca()
+digitadas = []
+erros = 0
+acertos = []
+
+
+C = ["Ç"]
+A = ["Ã", "Â", "À", "Á"]
+E = ["È", "É", "Ê"]
+O = ["Ô", "Õ", "Ó"]
+I = ["Í", "Ì", "Î"]
+U = ["Ù", "Ú", "Û"]
+
+#############################################
+#linhas retiradas de um exemplu do livro Python do Nilo Ney 
+window = desenhaforca()
+chutes = []
+erros = 0
+acertos =[]
+import turtle 
+tartaruga = turtle.Turtle()
+while True:
+    certas = " "
+    for letra in pcchoice:
+        if letra in acertos:
+            certas += letra
+        else:
+            certas += " "
+    letrasacertadas(certas)
+    if certas == pcchoice:
+        tartaruga.pu()
+        tartaruga.setpos(-150,100)
+        tartaruga.write("Parabéns, você adivinhou!!", align = "left", font = ("Arial", 14, "bold"))
+        break
+    chance = turtle.textinput("Jogo da forca", "Chute uma letra:")
+    if chance in chutes:
+        continue
+    else:
+        chutes += chance
+        letraschutadas(chutes)
+        if chance in pcchoice:
+            acertos += chance
+        else:
+            erros += 1
+        if chance == "A":
+            for i in range (0,len(A)-1):
+                if A[i] in pcchoice:
+                    acertos += A[i]
+        if chance == "E":
+            for i in range(0,len(E)-1):
+                if E[i] in pcchoice:
+                    acertos +=E[i]
+                    
+        if chance == "I":
+            for i in range(0,len(I)-1):
+                if I[i] in pcchoice:
+                    acertos += I[i]
+        if chance == "O":
+            for i in range(0,len(O)-1):
+                if O[i] in pcchoice:
+                    acertos += 1
+        if chance == "U":
+            for i in range (0,len(U)-1):
+                if U[i] in pcchoice:
+                    acertos += 1
+        if chance == "C":
+            for i in range (0,len(C)-1):
+                if C[i] in pcchoice:
+                    acertos += 1
         
+        if erros == 1:
+            desenhaboneco(erros-1)
+        if erros == 2:
+            desenhaboneco(erros-1)
+        if erros == 3:
+            desenhaboneco(erros-1)
+        if erros == 4:
+            desenhaboneco(erros-1)
+        if erros == 5:
+            desenhaboneco(erros-1)
+        if erros == 6:
+            desenhaboneco(erros-1)
+        if erros == 7:
+            desenhaboneco(erros-1)
+
+
+       
+       
 
 window.exitonclick()
 
